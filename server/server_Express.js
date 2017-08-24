@@ -16,8 +16,6 @@ if (project.env === 'development') {
     const webpack = require('webpack')
     const webpackConfig = require(path.join(project.basePath,'build','webpack.config.js'))
     const compiler = webpack(webpackConfig)
-    console.log(compiler.outputPath)
-    console.log(compiler.outputFileSystem)
 
     app.use(require('webpack-dev-middleware')(compiler, {
         publicPath: webpackConfig.output.publicPath,

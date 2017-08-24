@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const path = require('path') 
 const HtmlWebpackPlugin = require('html-webpack-plugin') 
-const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin') 
 const project = require('../project.config') 
 
@@ -147,11 +146,8 @@ config.plugins.push(
         minify: {
             //去掉空格
             collapseWhitespace: true
-        },
-        alwaysWriteToDisk: true
-    }),
-    //热加载时也写入硬盘
-    new HtmlWebpackHarddiskPlugin()
+        }
+    })
 )
 
 // Development Tools

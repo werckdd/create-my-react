@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
-import logo from '../imges/logo.svg';
+import logo from '../../../public/logo.svg';
 import './App.css';
 
 class App extends React.Component {
