@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{Component} from 'react'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
+
 import logo from '../../../public/logo.svg';
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
    
     shouldComponentUpdate() {
         return false

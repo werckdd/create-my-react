@@ -11,7 +11,7 @@ const __TEST__ = project.env === 'test'
 const __PROD__ = project.env === 'production'
 
 const config = {
-    devtool: project.sourcemaps ? 'eval' : false,
+    devtool: project.sourcemaps ? 'source-map' : false,
     entry: {
         index: [inProject(project.srcDir,'index','index.js')]
     },
@@ -25,7 +25,7 @@ const config = {
             inProject(project.srcDir),
             'node_modules',
         ],
-        extensions: ['*', '.js', '.jsx', '.json'],
+        extensions: ['*', '.js', '.jsx', ".ts", ".tsx", '.json'],
     },
     externals: project.externals,
     module: {
@@ -51,6 +51,19 @@ config.module.rules.push({
     use: [{
         loader: 'babel-loader'
     }],
+})
+
+// TypeScript
+// ------------------------------------
+config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    exclude: /node_modules/,
+    use: [{
+        loader: 'awesome-typescript-loader'
+    }],
+},
+{
+    enforce: "pre", test: /\.js$/, loader: "source-map-loader"
 })
 
 //styles 
